@@ -9,10 +9,12 @@ const couterSlice = createSlice({
   initialState,
   reducers: {
     increment: (state) => {
-      state.count += 1;
+      state.count = state.count + 1;
     },
     decremnet: (state) => {
-      state.count -= 1;
+      state.count = state.count - 1;
     },
   },
 });
+
+export default couterSlice.reducer;
