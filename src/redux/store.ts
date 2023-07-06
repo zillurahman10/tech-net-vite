@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./features/counter/counterSlice";
+import logger from "./middlewares/logger";
 
 const store = configureStore({
   reducer: {
     count: counterReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.getState;
+export type AppDispatch = typeof store.dispatch;
 
 export default store;
